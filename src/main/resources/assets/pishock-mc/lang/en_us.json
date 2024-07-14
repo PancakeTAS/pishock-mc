@@ -1,0 +1,41 @@
+{
+
+    "text.toast.title": "PiShock Integration",
+    "text.toast.login.fail": "Configuration is §cinvalid§r!",
+    "text.toast.api.fail": "API request §cfailed§r!",
+
+    "text.autoconfig.pishock-mc.title": "PiShock Configuration",
+
+    "text.autoconfig.pishock-mc.option.enableMod": "Enable PiShock",
+    "text.autoconfig.pishock-mc.option.enableMod.@Tooltip": "Should the entire mod be enabled?",
+
+    "text.autoconfig.pishock-mc.option.damagePunishment": "Damage Punishment",
+    "text.autoconfig.pishock-mc.option.damagePunishment.@Tooltip": "Get punished for taking damage.\nThe shock intensity varies based on the damage taken.",
+    "text.autoconfig.pishock-mc.option.damagePunishment.enable": "Enable Damage Punishment",
+    "text.autoconfig.pishock-mc.option.damagePunishment.enable.@Tooltip": "Enable this punishment?",
+    "text.autoconfig.pishock-mc.option.damagePunishment.minIntensity": "Minimum Intensity",
+    "text.autoconfig.pishock-mc.option.damagePunishment.minIntensity.@Tooltip": "Minimal shock intensity for taking damage.",
+    "text.autoconfig.pishock-mc.option.damagePunishment.maxIntensity": "Maximum Intensity",
+    "text.autoconfig.pishock-mc.option.damagePunishment.maxIntensity.@Tooltip": "Maximal shock intensity for taking 10 hearts of damage.",
+    "text.autoconfig.pishock-mc.option.damagePunishment.shockDuration": "Shock Duration",
+    "text.autoconfig.pishock-mc.option.damagePunishment.shockDuration.@Tooltip": "<todo>",
+
+    "text.autoconfig.pishock-mc.option.deathPunishment": "Death Punishment",
+    "text.autoconfig.pishock-mc.option.deathPunishment.@Tooltip": "Get punished for dying.",
+    "text.autoconfig.pishock-mc.option.deathPunishment.enable": "Enable Death Punishment",
+    "text.autoconfig.pishock-mc.option.deathPunishment.enable.@Tooltip": "Enable this punishment?",
+    "text.autoconfig.pishock-mc.option.deathPunishment.shockIntensity": "Shock Intensity",
+    "text.autoconfig.pishock-mc.option.deathPunishment.shockIntensity.@Tooltip": "Shock intensity for dying.",
+    "text.autoconfig.pishock-mc.option.deathPunishment.shockDuration": "Shock Duration",
+    "text.autoconfig.pishock-mc.option.deathPunishment.shockDuration.@Tooltip": "<todo>",
+
+    "text.autoconfig.pishock-mc.option.secrets": "Secrets",
+    "text.autoconfig.pishock-mc.option.secrets.@Tooltip": "=== DO NOT SHARE THIS ===\nPiShock API Secrets",
+    "text.autoconfig.pishock-mc.option.secrets.username": "Username",
+    "text.autoconfig.pishock-mc.option.secrets.username.@Tooltip": "Your PiShock Username",
+    "text.autoconfig.pishock-mc.option.secrets.apiKey": "API Key",
+    "text.autoconfig.pishock-mc.option.secrets.apiKey.@Tooltip": "Your PiShock API Key",
+    "text.autoconfig.pishock-mc.option.secrets.sharecode": "Sharecode",
+    "text.autoconfig.pishock-mc.option.secrets.sharecode.@Tooltip": "Your PiShock Sharecode"
+
+}
