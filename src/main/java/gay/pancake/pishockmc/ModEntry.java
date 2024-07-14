@@ -35,7 +35,8 @@ public class ModEntry implements ModInitializer {
             return;
 
         // send packet to client
-        ServerPlayNetworking.send(player, new PlayerHurtPacket(player.getUUID(), damage, player.isDeadOrDying()));
+        ServerPlayNetworking.send(player, new PlayerHurtPacket(damage, player.isDeadOrDying()));
+    }
     }
 
 }

@@ -38,7 +38,7 @@ public class ClientEntry implements ClientModInitializer, ModMenuApi {
         ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> onWorldConnect(client));
 
         // Register packet receivers
-        ClientPlayNetworking.registerGlobalReceiver(PlayerHurtPacket.ID, ((payload, context) -> onPlayerDamage(payload.entity(), payload.damage(), payload.die())));
+        ClientPlayNetworking.registerGlobalReceiver(PlayerHurtPacket.ID, ((payload, context) -> onPlayerDamage(payload.damage(), payload.die())));
     }
 
     /**
@@ -94,16 +94,10 @@ public class ClientEntry implements ClientModInitializer, ModMenuApi {
     /**
      * Handle player damage packets
      *
-     * @param player Player UUID
      * @param damage Damage amount
      * @param die Whether the player died
      */
-    private void onPlayerDamage(UUID player, float damage, boolean die) {
-        // Ignore non-local player damage events
-        var localPlayer = Minecraft.getInstance().player;
-        if (localPlayer == null || !localPlayer.getUUID().equals(player))
-            return;
-
+    private void onPlayerDamage(float damage, boolean die) {
         // Grab the configuration
         var config = AutoConfig.getConfigHolder(ModConfiguration.class).getConfig();
 
