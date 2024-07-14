@@ -1,0 +1,35 @@
+{
+    "schemaVersion": 1,
+    "id": "pishock-mc",
+    "version": "${version}",
+    "name": "pishock-mc",
+    "description": "Highly customizable PiShock integration for Minecraft",
+    "authors": [
+        "PancakeTAS"
+    ],
+    "contact": {
+        "website": "https://pancake.gay",
+        "repo": "https://github.com/PancakeTAS/pishock-mc"
+    },
+    "license": "GPL-3.0",
+    "icon": "assets/pishock-mc/icon.png",
+    "environment": "client",
+    "entrypoints": {
+        "main": [
+            "gay.pancake.pishockmc.ModEntry"
+        ],
+        "client": [
+            "gay.pancake.pishockmc.client.ClientEntry"
+        ],
+        "modmenu": [
+            "gay.pancake.pishockmc.client.ClientEntry"
+        ]
+    },
+    "mixins": [
+        "pishockmc.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=${loader_version}",
+        "minecraft": "${minecraft_version}"
+    }
+}
