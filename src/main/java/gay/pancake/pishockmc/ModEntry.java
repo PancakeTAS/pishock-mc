@@ -64,14 +64,14 @@ public class ModEntry implements ModInitializer {
         // broadcast message to all players
         Component message;
         if (die) {
-            message = Component.translatable("text.message.zapdeath", player.getName())
+            message = Component.translatableWithFallback("text.message.zapdeath", "* %s got punished for dying.", player.getName())
                     .withStyle(style -> style.withHoverEvent(
-                            new HoverEvent(HoverEvent.Action.SHOW_TEXT, Component.translatable("text.message.zapdeath.@Tooltip", intensity, duration.string)
+                            new HoverEvent(HoverEvent.Action.SHOW_TEXT, Component.translatableWithFallback("text.message.zapdeath.@Tooltip", "%s%% for %s", intensity, duration.string)
                     )));
         } else {
-            message = Component.translatable("text.message.zap", player.getName(), Component.literal(String.valueOf(damage)))
+            message = Component.translatableWithFallback("text.message.zap", "* %s took %s damage.", player.getName(), Component.literal(String.valueOf(damage)))
                     .withStyle(style -> style.withColor(damage >= 5.0 ? (damage >= 10.0 ? ChatFormatting.RED : ChatFormatting.YELLOW) : ChatFormatting.GREEN).withHoverEvent(
-                            new HoverEvent(HoverEvent.Action.SHOW_TEXT, Component.translatable("text.message.zap.@Tooltip", intensity, duration.string)
+                            new HoverEvent(HoverEvent.Action.SHOW_TEXT, Component.translatableWithFallback("text.message.zap.@Tooltip", "%s%% for %s", intensity, duration.string)
                     )));
         }
         server.getPlayerList().broadcastSystemMessage(message, false);
