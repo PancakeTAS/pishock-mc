@@ -69,8 +69,8 @@ public class ModEntry implements ModInitializer {
                             new HoverEvent(HoverEvent.Action.SHOW_TEXT, Component.translatableWithFallback("text.message.zapdeath.@Tooltip", "%s%% for %s", intensity, duration.string)
                     )));
         } else {
-            message = Component.translatableWithFallback("text.message.zap", "* %s took %s damage.", player.getName(), Component.literal(String.valueOf(damage)))
-                    .withStyle(style -> style.withColor(damage >= 5.0 ? (damage >= 10.0 ? ChatFormatting.RED : ChatFormatting.YELLOW) : ChatFormatting.GREEN).withHoverEvent(
+            message = Component.translatableWithFallback("text.message.zap", "* %s took %s damage.", player.getName(), Component.literal(String.valueOf(damage)).withStyle(damage >= 5.0 ? (damage >= 10.0 ? ChatFormatting.RED : ChatFormatting.YELLOW) : ChatFormatting.GREEN))
+                    .withStyle(style -> style.withHoverEvent(
                             new HoverEvent(HoverEvent.Action.SHOW_TEXT, Component.translatableWithFallback("text.message.zap.@Tooltip", "%s%% for %s", intensity, duration.string)
                     )));
         }
