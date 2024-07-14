@@ -1,0 +1,11 @@
+# gradle
+.gradle/
+gradle/
+build/
+
+# idea
+.idea/
+
+# fabric
+run/
+run-server/
