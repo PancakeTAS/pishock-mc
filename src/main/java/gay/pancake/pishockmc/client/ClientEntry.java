@@ -35,7 +35,7 @@ public class ClientEntry implements ClientModInitializer, ModMenuApi {
         AutoConfig.register(ModConfiguration.class, GsonConfigSerializer::new);
 
         // Register events
-        ClientPlayConnectionEvents.JOIN.register(this::onWorldConnect);
+        ClientPlayConnectionEvents.JOIN.register((handler, sender, client) -> onWorldConnect(client));
 
         // Register packet receivers
         ClientPlayNetworking.registerGlobalReceiver(PlayerHurtPacket.ID, ((payload, context) -> onPlayerDamage(payload.entity(), payload.damage(), payload.die())));
@@ -58,7 +58,7 @@ public class ClientEntry implements ClientModInitializer, ModMenuApi {
      * @param sender Packet sender
      * @param client Minecraft client
      */
-    private void onWorldConnect(ClientPacketListener handler, PacketSender sender, Minecraft client) {
+    private void onWorldConnect(Minecraft client) {
         // Validate configuration
         var config = AutoConfig.getConfigHolder(ModConfiguration.class).getConfig();
         if (!config.enableMod)
