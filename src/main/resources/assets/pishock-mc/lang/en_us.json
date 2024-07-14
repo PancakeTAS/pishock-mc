@@ -1,5 +1,10 @@
 {
 
+    "text.message.zap": "* %s took %s damage.",
+    "text.message.zap.@Tooltip": "%s%% for %s",
+    "text.message.zapdeath": "* %s got punished for dying.",
+    "text.message.zapdeath.@Tooltip": "%s%% for %s",
+
     "text.toast.title": "PiShock Integration",
     "text.toast.login.fail": "Configuration is §cinvalid§r!",
     "text.toast.api.fail": "API request §cfailed§r!",

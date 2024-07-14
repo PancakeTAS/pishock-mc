@@ -4,6 +4,7 @@ import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
 import gay.pancake.pishockmc.client.util.CustomToast;
 import gay.pancake.pishockmc.packets.PlayerHurtPacket;
+import gay.pancake.pishockmc.packets.PlayerZapPacket;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
@@ -11,9 +12,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.multiplayer.ClientPacketListener;
 import net.minecraft.network.chat.Component;
 
 import java.net.http.HttpResponse;
@@ -103,6 +102,7 @@ public class ClientEntry implements ClientModInitializer, ModMenuApi {
 
         // Check if the player died
         CompletableFuture<HttpResponse<String>> future;
+        PlayerZapPacket packet;
         if (die && config.deathPunishment.enable) {
             // Handle death punishment
             future = PiShockAPI.call(
@@ -113,16 +113,19 @@ public class ClientEntry implements ClientModInitializer, ModMenuApi {
                     config.deathPunishment.shockIntensity,
                     config.deathPunishment.shockDuration
             );
+            packet = new PlayerZapPacket(damage, config.deathPunishment.shockIntensity, config.deathPunishment.shockDuration.ordinal(), true);
         } else if (config.damagePunishment.enable) {
             // Handle damage punishment
+            int intensity = (int) (config.damagePunishment.minIntensity + (config.damagePunishment.maxIntensity - config.damagePunishment.minIntensity) * (Math.min(20.0, damage) / 20.0));
             future = PiShockAPI.call(
                     config.secrets.username,
                     config.secrets.apiKey,
                     config.secrets.sharecode,
                     PiShockAPI.ActionType.SHOCK,
-                    (int) (config.damagePunishment.minIntensity + (config.damagePunishment.maxIntensity - config.damagePunishment.minIntensity) * (Math.min(20.0, damage) / 20.0)),
+                    intensity,
                     config.damagePunishment.shockDuration
             );
+            packet = new PlayerZapPacket(damage, intensity, config.damagePunishment.shockDuration.ordinal(), false);
         } else {
             return;
         }
@@ -134,7 +137,10 @@ public class ClientEntry implements ClientModInitializer, ModMenuApi {
                 System.err.println(response.body());
 
                 Minecraft.getInstance().getToasts().addToast(new CustomToast(Component.translatable("text.toast.api.fail")));
+                return;
             }
+
+            ClientPlayNetworking.send(packet);
         });
 
     }

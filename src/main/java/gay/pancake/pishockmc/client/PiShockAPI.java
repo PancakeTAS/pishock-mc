@@ -20,15 +20,19 @@ public class PiShockAPI {
      */
     public enum ActionDuration {
 
-        MS_100(100), MS_300(300),
-        S_1(1), S_2(2),  S_3(3),  S_4(4), S_5(5),
-        S_6(6), S_7(7), S_8(8), S_9(9), S_10(10);
+        MS_100(100, "100ms"), MS_300(300, "100ms"),
+        S_1(1, "1s"), S_2(2, "2s"),  S_3(3, "3s"),  S_4(4, "4s"), S_5(5, "5s"),
+        S_6(6, "6s"), S_7(7, "7s"), S_8(8, "8s"), S_9(9, "9s"), S_10(10, "10s");
 
         /** API-encoded duration of the action. */
         public final int duration;
 
-        ActionDuration(int duration) {
+        /** Human-readable duration of the action. */
+        public final String string;
+
+        ActionDuration(int duration, String string) {
             this.duration = duration;
+            this.string = string;
         }
 
     }
