@@ -84,9 +84,6 @@ public class PiShockAPI {
      * @return CompletableFuture of the HTTP response
      */
     public static CompletableFuture<HttpResponse<String>> call(String username, String apiKey, String sharecode, ActionType op, int intensity, ActionDuration duration) {
-        // Log the action
-        System.err.printf("Calling PiShock API: %s with %d%% for %d\n", op, intensity, duration);
-
         // Create the request
         var body = String.format(REQUEST_JSON, username, apiKey, sharecode, op.type, intensity, duration.duration);
         var request = HttpRequest.newBuilder()
