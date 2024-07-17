@@ -20,18 +20,20 @@ public class PiShockAPI {
      */
     public enum ActionDuration {
 
-        MS_100(100, "100ms"), MS_300(300, "100ms"),
-        S_1(1, "1s"), S_2(2, "2s"),  S_3(3, "3s"),  S_4(4, "4s"), S_5(5, "5s"),
-        S_6(6, "6s"), S_7(7, "7s"), S_8(8, "8s"), S_9(9, "9s"), S_10(10, "10s");
+        MS_100(100, 100, "100ms"), MS_300(300, 300, "300ms"),
+        S_1(1, 1000, "1s"), S_2(2, 2000, "2s"),  S_3(3, 3000, "3s"),  S_4(4, 4000, "4s"), S_5(5, 5000, "5s"),
+        S_6(6, 6000, "6s"), S_7(7, 7000, "7s"), S_8(8, 8000, "8s"), S_9(9, 9000, "9s"), S_10(10, 10000, "10s");
 
         /** API-encoded duration of the action. */
         public final int duration;
-
+        /** Internal duration of the action. */
+        public final int internal;
         /** Human-readable duration of the action. */
         public final String string;
 
-        ActionDuration(int duration, String string) {
+        ActionDuration(int duration, int internal, String string) {
             this.duration = duration;
+            this.internal = internal;
             this.string = string;
         }
 
@@ -42,13 +44,16 @@ public class PiShockAPI {
      */
     public enum ActionType {
 
-        SHOCK(0), VIBRATE(1), BEEP(2);
+        SHOCK(0, "shock"), VIBRATE(1, "vibrate"), BEEP(2, "beep");
 
         /** API-encoded type of action. */
         public final int type;
+        /** Internal code of the action. */
+        public final String code;
 
-        ActionType(int type) {
+        ActionType(int type, String code) {
             this.type = type;
+            this.code = code;
         }
 
     }

@@ -36,11 +36,17 @@
 
     "text.autoconfig.pishock-mc.option.secrets": "Secrets",
     "text.autoconfig.pishock-mc.option.secrets.@Tooltip": "=== DO NOT SHARE THIS ===\nPiShock API Secrets",
-    "text.autoconfig.pishock-mc.option.secrets.username": "Username",
-    "text.autoconfig.pishock-mc.option.secrets.username.@Tooltip": "Your PiShock Username",
-    "text.autoconfig.pishock-mc.option.secrets.apiKey": "API Key",
-    "text.autoconfig.pishock-mc.option.secrets.apiKey.@Tooltip": "Your PiShock API Key",
-    "text.autoconfig.pishock-mc.option.secrets.sharecode": "Sharecode",
-    "text.autoconfig.pishock-mc.option.secrets.sharecode.@Tooltip": "Your PiShock Sharecode"
+    "text.autoconfig.pishock-mc.option.secrets.useSerialPort": "Use serial port instead of Web API",
+    "text.autoconfig.pishock-mc.option.secrets.useSerialPort.@Tooltip": "Use the serial port for communication with the PiShock device.\nThis is MUCH faster than the Web API, but requires a direct usb connection to the PiShock device.",
+    "text.autoconfig.pishock-mc.option.secrets.serialPort": "Serial Port",
+    "text.autoconfig.pishock-mc.option.secrets.serialPort.@Tooltip": "The name of the serial port to use for communication with the PiShock device.\nONLY REQUIRED WHEN USING SERIAL PORT.",
+    "text.autoconfig.pishock-mc.option.secrets.shockerId": "Serial Shocker ID",
+    "text.autoconfig.pishock-mc.option.secrets.shockerId.@Tooltip": "The ID of the Shocker to use.\nONLY REQUIRED WHEN USING SERIAL PORT.",
+    "text.autoconfig.pishock-mc.option.secrets.username": "Web Username",
+    "text.autoconfig.pishock-mc.option.secrets.username.@Tooltip": "Your PiShock Username\nONLY REQUIRED WHEN USING WEBAPI.",
+    "text.autoconfig.pishock-mc.option.secrets.apiKey": "Web API Key",
+    "text.autoconfig.pishock-mc.option.secrets.apiKey.@Tooltip": "Your PiShock API Key\nONLY REQUIRED WHEN USING WEBAPI.",
+    "text.autoconfig.pishock-mc.option.secrets.sharecode": "Web Sharecode",
+    "text.autoconfig.pishock-mc.option.secrets.sharecode.@Tooltip": "Your PiShock Sharecode\nONLY REQUIRED WHEN USING WEBAPI."
 
 }

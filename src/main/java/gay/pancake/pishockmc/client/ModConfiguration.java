@@ -1,11 +1,11 @@
 package gay.pancake.pishockmc.client;
 
+import gay.pancake.pishockmc.client.PiShockAPI.ActionDuration;
 import me.shedaniel.autoconfig.ConfigData;
 import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry.BoundedDiscrete;
 import me.shedaniel.autoconfig.annotation.ConfigEntry.Gui.CollapsibleObject;
 import me.shedaniel.autoconfig.annotation.ConfigEntry.Gui.Tooltip;
-import gay.pancake.pishockmc.client.PiShockAPI.ActionDuration;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 
@@ -82,6 +82,18 @@ public class ModConfiguration implements ConfigData {
      * This includes the API key and share code.
      */
     static class Secrets {
+
+        /** Whether to use the serial port or web api. */
+        @Tooltip
+        public boolean useSerialPort = false;
+
+        /** Serial port to use. */
+        @Tooltip
+        public String serialPort = "";
+
+        /** Id of the shocker to use. */
+        @Tooltip
+        public int shockerId = 0;
 
         /** PiShock username. */
         @Tooltip
