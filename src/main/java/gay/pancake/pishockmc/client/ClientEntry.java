@@ -146,7 +146,7 @@ public class ClientEntry implements ClientModInitializer, ModMenuApi {
             if (config.secrets.useSerialPort) {
                 future = this.serial.call(
                         config.secrets.shockerId,
-                        PiShockAPI.ActionType.SHOCK,
+                        PiShockAPI.ActionType.VIBRATE,
                         config.deathPunishment.shockIntensity,
                         config.deathPunishment.shockDuration
                 );
@@ -155,19 +155,19 @@ public class ClientEntry implements ClientModInitializer, ModMenuApi {
                         config.secrets.username,
                         config.secrets.apiKey,
                         config.secrets.sharecode,
-                        PiShockAPI.ActionType.SHOCK,
+                        PiShockAPI.ActionType.VIBRATE,
                         config.deathPunishment.shockIntensity,
                         config.deathPunishment.shockDuration
                 );
             }
-            packet = new PlayerZapPacket(damage, config.deathPunishment.shockIntensity, config.deathPunishment.shockDuration.ordinal(), true);
+            packet = new PlayerZapPacket(config.deathPunishment.shockIntensity, config.deathPunishment.shockDuration.ordinal());
         } else if (config.damagePunishment.enable) {
             // Handle damage punishment
             int intensity = (int) (config.damagePunishment.minIntensity + (config.damagePunishment.maxIntensity - config.damagePunishment.minIntensity) * (Math.min(20.0, damage) / 20.0));
             if (config.secrets.useSerialPort) {
                 future = this.serial.call(
                         config.secrets.shockerId,
-                        PiShockAPI.ActionType.SHOCK,
+                        PiShockAPI.ActionType.VIBRATE,
                         intensity,
                         config.damagePunishment.shockDuration
                 );
@@ -176,12 +176,12 @@ public class ClientEntry implements ClientModInitializer, ModMenuApi {
                         config.secrets.username,
                         config.secrets.apiKey,
                         config.secrets.sharecode,
-                        PiShockAPI.ActionType.SHOCK,
+                        PiShockAPI.ActionType.VIBRATE,
                         intensity,
                         config.damagePunishment.shockDuration
                 );
             }
-            packet = new PlayerZapPacket(damage, intensity, config.damagePunishment.shockDuration.ordinal(), false);
+            packet = new PlayerZapPacket(intensity, config.damagePunishment.shockDuration.ordinal());
         } else {
             return;
         }

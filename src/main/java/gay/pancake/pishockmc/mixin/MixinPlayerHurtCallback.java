@@ -23,8 +23,10 @@ public class MixinPlayerHurtCallback {
      */
     @Inject(at = @At("TAIL"), method = "actuallyHurt(Lnet/minecraft/world/damagesource/DamageSource;F)V")
     private void onHurt(DamageSource damageSource, float damage, CallbackInfo ci) {
-        if ((Player) (Object) this instanceof ServerPlayer p)
-            PlayerHurtCallback.EVENT.invoker().onHurt(p, damage);
+        if ((Player) (Object) this instanceof ServerPlayer p) {
+            damage = (float) Math.floor(damage * 2.0f) / 2.0f; // round to nearest half
+            PlayerHurtCallback.EVENT.invoker().onHurt(p, damageSource, damage);
+        }
     }
 
 }

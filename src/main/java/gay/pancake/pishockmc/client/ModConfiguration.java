@@ -19,7 +19,7 @@ public class ModConfiguration implements ConfigData {
 
     /** Whether the mod is enabled or not. */
     @Tooltip
-    boolean enableMod = true;
+    boolean enableMod = false;
 
     /** Damage punishment settings. */
     @CollapsibleObject @Tooltip
