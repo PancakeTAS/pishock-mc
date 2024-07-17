@@ -79,7 +79,7 @@ public class PiShockSerial implements Closeable {
      */
     public void close() throws IOException {
         this.write.close();
-        this.port.closePort();
+        this.port.closePort();﻿
     }
 
     /**

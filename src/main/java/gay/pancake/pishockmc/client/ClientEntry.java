@@ -146,7 +146,7 @@ public class ClientEntry implements ClientModInitializer, ModMenuApi {
             if (config.secrets.useSerialPort) {
                 future = this.serial.call(
                         config.secrets.shockerId,
-                        PiShockAPI.ActionType.VIBRATE,
+                        PiShockAPI.ActionType.SHOCK,
                         config.deathPunishment.shockIntensity,
                         config.deathPunishment.shockDuration
                 );
@@ -155,7 +155,7 @@ public class ClientEntry implements ClientModInitializer, ModMenuApi {
                         config.secrets.username,
                         config.secrets.apiKey,
                         config.secrets.sharecode,
-                        PiShockAPI.ActionType.VIBRATE,
+                        PiShockAPI.ActionType.SHOCK,
                         config.deathPunishment.shockIntensity,
                         config.deathPunishment.shockDuration
                 );
@@ -167,7 +167,7 @@ public class ClientEntry implements ClientModInitializer, ModMenuApi {
             if (config.secrets.useSerialPort) {
                 future = this.serial.call(
                         config.secrets.shockerId,
-                        PiShockAPI.ActionType.VIBRATE,
+                        PiShockAPI.ActionType.SHOCK,
                         intensity,
                         config.damagePunishment.shockDuration
                 );
@@ -176,7 +176,7 @@ public class ClientEntry implements ClientModInitializer, ModMenuApi {
                         config.secrets.username,
                         config.secrets.apiKey,
                         config.secrets.sharecode,
-                        PiShockAPI.ActionType.VIBRATE,
+                        PiShockAPI.ActionType.SHOCK,
                         intensity,
                         config.damagePunishment.shockDuration
                 );
