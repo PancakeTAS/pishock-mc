@@ -73,8 +73,6 @@ public class ClientEntry implements ClientModInitializer, ModMenuApi {
     /**
      * Handle world connect event.
      *
-     * @param handler Client packet listener
-     * @param sender Packet sender
      * @param client Minecraft client
      */
     private void onWorldConnect(Minecraft client) {

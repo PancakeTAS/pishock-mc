@@ -30,6 +30,14 @@ public class CustomToast implements Toast {
         this.text = text;
     }
 
+    /**
+     * Render the toast
+     *
+     * @param gui Graphics object
+     * @param toast Toast component
+     * @param l Time
+     * @return Visibility
+     */
     @Override
     public @NotNull Visibility render(GuiGraphics gui, ToastComponent toast, long l) {
         gui.blitSprite(BACKGROUND_SPRITE, 0, 0, this.width(), this.height());
