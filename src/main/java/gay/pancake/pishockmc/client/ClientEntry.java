@@ -119,8 +119,13 @@ public class ClientEntry implements ClientModInitializer, ModMenuApi {
             }
         } catch (Exception e) {
             client.getToasts().addToast(new CustomToast(Component.translatable("text.toast.login.fail")));
-
         }
+
+        // Test shocker, ignore output
+        if (config.secrets.useSerialPort)
+            this.serial.call(config.secrets.shockerId, PiShockAPI.ActionType.BEEP, 0, PiShockAPI.ActionDuration.MS_300);
+        else
+            PiShockAPI.call(config.secrets.username, config.secrets.apiKey, config.secrets.sharecode, PiShockAPI.ActionType.BEEP, 0, PiShockAPI.ActionDuration.MS_300);
     }
 
     /**
